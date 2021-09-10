@@ -11,7 +11,7 @@ This program is designed as an out-of-the-box solution, and no alterations to th
 aimed functionality.
 
 Nonetheless, any alterations aiming to tweak/improve execution, or to achieve any fundamentally different functionality are totally
-permitted, as long as the original gets its respectful credit.
+permitted, as long as the original gets its proper mention.
 
 Happy dehashing!
 
@@ -39,14 +39,17 @@ def exiting(dehashed, n):
 try:
 
     def dehashing(hash_type, hash, words, ruleset):
-        subprocess.run(f'hashcat --force --status -O -o cracked.tmp -a 0 -m {hash_type} {hash} {words} -r {ruleset}', shell=True)
+        if ruleset!='0':
+            subprocess.run(f'hashcat --force --status -O -o cracked.tmp -a 0 -m {hash_type} {hash} {words} -r {ruleset}', shell=True)
+        else:
+            subprocess.run(f'hashcat --force --status -O -o cracked.tmp -a 0 -m {hash_type} {hash} {words}', shell=True)
 
     file_loc = str(input("Insert the location of the file containing the hashes: ")).strip()
     my_file = open(file_loc, "r")
     hash_list = my_file.readlines() # Generate list of hashes from provided file
     hash_type = str(input("Insert the proper hash type code to pass to hashcat: ")).strip()
     words = str(input("Insert the location of the wordlist you want to use: ")).strip()
-    ruleset = str(input("Insert the location of the .rule you want to use: ")).strip()
+    ruleset = str(input("Insert the location of the .rule you want to use. \"0\" stands for no rules being used: ")).strip()
     timer = int(input("Insert the time limit (seconds) per hash. \"0\" stands for no time limit: "))
     outfile = str(input("Insert the location of the outfile: ")).strip()
 
