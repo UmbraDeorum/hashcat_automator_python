@@ -13,6 +13,9 @@ aimed functionality.
 Nonetheless, any alterations aiming to tweak/improve execution, or to achieve any fundamentally different functionality are totally
 permitted, as long as the original gets its proper mention.
 
+With that said, no illegal activities are permitted through the use of this program. Ragrding any violation, all liabilites are with the user
+executing the program, and not with UmbraDeorum or any affiliated parties.
+
 Happy dehashing!
 
 Made by UmbraDeorum.
